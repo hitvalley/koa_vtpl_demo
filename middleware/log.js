@@ -17,7 +17,7 @@ module.exports = function(app) {
     },
     info: infoLogger.info.bind(infoLogger),
     app: appLogger.info.bind(appLogger),
-    debug: env === 'test' || env === 'dev' || env === 'local' ? debugLogger.error.bind(debugLogger) : function(){}
+    debug: global.ENV === 'dev' ? debugLogger.error.bind(debugLogger) : function(){}
   };
 
   // http request
